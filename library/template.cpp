@@ -1,57 +1,42 @@
 #include <bits/stdc++.h>
 
+// #include <bits/stdc++.h>が使えなかったら
+#include <iostream>
+#include <vector>
 #include <algorithm>
+#include <map>
+#include <queue>
+#include <set>
+#include <string>
+#include <stack>
+#include <iterator>
+
+// いらないかも？？？
 #include <cassert>
 #include <cmath>
 #include <complex>
 #include <cstdint>
 #include <functional>
 #include <iomanip>
-#include <iostream>
-#include <iterator>
 #include <limits>
 #include <list>
-#include <map>
-#include <queue>
 #include <random>
 #include <regex>
-#include <set>
-#include <stack>
-#include <string>
 #include <tuple>
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
-#include <vector>
 
 using namespace std;
 
+// 以下は開始直後に書こうと思っています
 using ll = long long;
-using ld = long double;
-using pii = pair<int, int>;
-using pll = pair<ll, ll>;
 using vl = vector<ll>;
-using vvl = vector<vector<ll>>;
-using vvvl = vector<vector<vector<ll>>>;
-using vi = vector<int>;
-using vvi = vector<vector<int>>;
-using vvvi = vector<vector<vector<int>>>;
-using vld = vector<ld>;
-using vvld = vector<vector<ld>>;
-using vvvld = vector<vector<vector<ld>>>;
-using vb = vector<bool>;
-using vvb = vector<vector<bool>>;
-using vvvb = vector<vector<vector<bool>>>;
-using vpll = vector<pll>;
-using vvpll = vector<vector<pll>>;
-using vvvpll = vector<vector<vector<pll>>>;
+using vvl = vector<vl>;
+using vvvl = vector<vvl>;
+
 #define rep(i, n) for (ll i = 0; i < (n); ++i)
 #define Rep(i, a, b) for (ll i = (a); i < (b); ++i)
-#define rrep(i, n) for (ll i = n - 1; i >= 0; i--)
-#define rRep(i, a, b) for (ll i = a; i >= b; i--)
-
-#define drep(i, a, b, d) for (ll i = (a); i <= (b); i += d)
-#define drrep(i, a, b, d) for (ll i = (a); i >= (b); i -= d)
 
 #define ALL(x) (x).begin(), (x).end()
 #define rALL(x) (x).rbegin(), (x).rend()
@@ -59,27 +44,50 @@ using vvvpll = vector<vector<vector<pll>>>;
 constexpr ll INF = 1000000011;
 constexpr ll LINF = 1001002003004005006ll;
 
-template <class T>
-using max_heap = priority_queue<T>;
-template <class T>
-using min_heap = priority_queue<T, vector<T>, greater<T>>;
+template <class T, class U>
+inline bool chmax(T &a, const U &b) {
+  if (a < b) {
+    a = b;
+    return 1;
+  }
+  return 0;
+}
+template <class T, class U>
+inline bool chmin(T &a, const U &b) {
+  if (a > b) {
+    a = b;
+    return 1;
+  }
+  return 0;
+}
 
-template <class T, class U>
-inline bool chmax(T &lhs, const U &rhs) {
-  if (lhs < rhs) {
-    lhs = rhs;
-    return 1;
-  }
-  return 0;
-}
-template <class T, class U>
-inline bool chmin(T &lhs, const U &rhs) {
-  if (lhs > rhs) {
-    lhs = rhs;
-    return 1;
-  }
-  return 0;
-}
+
+
+// 適宜必要になったら各自で書いてほしいコードです
+using vi = vector<int>;
+using vvi = vector<vi>;
+using vvvi = vector<vvi>;
+using ld = long double;
+using vld = vector<ld>;
+using vvld = vector<vld>;
+using vvvld = vector<vvld>;
+using vb = vector<bool>;
+using vvb = vector<vb>;
+using vvvb = vector<vvb>;
+using pii = pair<int, int>;
+using pll = pair<ll, ll>;
+using vpll = vector<pll>;
+using vvpll = vector<vector<pll>>;
+using vvvpll = vector<vector<vector<pll>>>;
+
+#define rrep(i, n) for (ll i = n - 1; i >= 0; i--)
+#define rRep(i, a, b) for (ll i = a; i >= b; i--)
+
+#define drep(i, a, b, d) for (ll i = (a); i <= (b); i += d)
+#define drrep(i, a, b, d) for (ll i = (a); i >= (b); i -= d)
+
+template <class T> using max_heap = priority_queue<T>;
+template <class T> using min_heap = priority_queue<T, vector<T>, greater<T>>;
 
 struct setup_main {
   setup_main() {
