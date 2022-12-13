@@ -77,8 +77,8 @@ using vvvb = vector<vvb>;
 using pii = pair<int, int>;
 using pll = pair<ll, ll>;
 using vpll = vector<pll>;
-using vvpll = vector<vector<pll>>;
-using vvvpll = vector<vector<vector<pll>>>;
+using vvpll = vector<vpll>;
+using vvvpll = vector<vvpll>;
 
 #define rrep(i, n) for (ll i = n - 1; i >= 0; i--)
 #define rRep(i, a, b) for (ll i = a; i >= b; i--)
