@@ -9,6 +9,7 @@ class modint {
 
   constexpr modint(u64 x = 0) noexcept : a(x % Modulus) {}
   u64 &value() { return a; }
+  modint operator-() { return modint() - *this; }
   modint operator+(modint rhs) { return modint(*this) += rhs; }
   modint operator-(modint rhs) { return modint(*this) -= rhs; }
   modint operator*(modint rhs) { return modint(*this) *= rhs; }
@@ -32,15 +33,16 @@ class modint {
     return *this;
   }
   modint &operator/=(modint rhs) {
-    u64 exp = Modulus - 2;
-    while (exp) {
-      if (exp % 2) {
-        *this *= rhs;
-      }
-      rhs *= rhs;
-      exp /= 2;
+    return *this = *this * pow(Modulus - 2)
+  }
+  modint pow(u64 n){
+    modint x = *this, r = 1;
+    while (n) {
+      if (n % 2) r *= x;
+      x *= x;
+      n /= 2;
     }
-    return *this;
+    return r;
   }
 };
 
